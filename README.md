@@ -45,6 +45,41 @@ Describe your fixed game in numbered steps so a reader can follow along without 
 
 ```
 # Paste your pytest output here, e.g.:
+# 🎮 Game Glitch Investigator
+
+## 📌 Project Overview
+This project is a debugged version of an AI-generated number guessing game built with Streamlit. The original game had multiple bugs affecting gameplay, scoring, and hints.
+
+The goal of this project was to identify and fix those issues, refactor logic into separate modules, and ensure the game works correctly with automated tests.
+
+---
+
+## 🐞 Bugs Found
+1. The secret number reset unexpectedly due to improper use of Streamlit session state.
+2. Hint messages ("Higher/Lower") were incorrect or misleading.
+3. The game logic mixed strings and integers inconsistently.
+4. Difficulty settings were not properly applied when restarting the game.
+5. Attempt counter started incorrectly, affecting gameplay balance.
+
+---
+
+## 🔧 Fixes Applied
+- Used `st.session_state` to persist the secret number.
+- Fixed logic in `check_guess()` to return correct outcomes.
+- Corrected hint messages in the Streamlit UI.
+- Ensured difficulty settings control number range properly.
+- Reset game state correctly when starting a new game.
+- Separated logic into `logic_utils.py` for better structure and testing.
+
+---
+
+## 🧪 Testing
+Pytest was used to verify core game logic:
+
+- Win condition works correctly
+- "Too High" and "Too Low" responses are accurate
+
+Run tests with:
 # pytest tests/
 # ========================= X passed in 0.XXs =========================
 ```
